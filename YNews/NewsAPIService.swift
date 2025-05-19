@@ -18,7 +18,7 @@ final class NewsAPIService: NewsAPI {
     private let apiKey: String
     private let baseURL = "https://newsapi.org/v2/top-headlines"
     
-    init(session: URLSession = .shared, apiKey: String = "26febd2ebb9e467ba086722b1d203c666") { //remove last 6 for correct APIKEY
+    init(session: URLSession = .shared, apiKey: String = "26febd2ebb9e467ba086722b1d203c66") { //remove last 6 for correct APIKEY
         self.session = session
         self.apiKey = apiKey
     }

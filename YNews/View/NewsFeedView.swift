@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct NewsFeedView: View {
-    @StateObject private var viewModel: NewsFeedViewModel
+struct NewsFeedView<ViewModel: NewsFeedViewModel>: View {
+    @StateObject private var viewModel: ViewModel
     
-    init(viewModel: NewsFeedViewModel) {
+    init(viewModel: ViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
@@ -28,32 +28,49 @@ struct NewsFeedView: View {
     private var content: some View {
         switch viewModel.state {
         case .idle:
-            Text("IDLE")
+            ProgressView("Preparing...")
+                .maxFrame()
         case .loading:
             ProgressView("Fetching News")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-        case .loaded(let array):
-            Text("loaded")
+                .maxFrame()
+        case .loaded(let articles):
+            List(articles) { article in
+                NavigationLink(destination: NewsDetailView(article: article)) {
+                    NewsRowView(article: article)
+                }
+            }
+            .listStyle(.plain)
         case .failed(let error):
-            VStack(alignment: .leading) {
+            VStack(spacing: 12) {
                 Text("Failed to load news.")
                     .font(.headline)
-                Text("\(error.localizedDescription)")
+                Text(error.localizedDescription)
                     .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                Button("Retry") {
+                    Task {
+                        await viewModel.loadNews()
+                    }
+                }
+                .buttonStyle(.borderedProminent)
             }
-            .background(Color.red)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .maxFrame()
+            .multilineTextAlignment(.center)
+            .background(Color.red.opacity(0.1))
+            .ignoresSafeArea()
+
         }
     }
 }
 
 
 struct NewsFeedView_Previews: PreviewProvider {
-
     static var previews: some View {
         let api = NewsAPIService()
-        let VM = NewsFeedViewModel(newsService: api, country: Country.ua, category: .business)
-        NewsFeedView(viewModel: VM)
+        let viewModel = DefaultNewsFeedViewModel(newsService: api, country: .us, category: .health)
+        //let mockViewModel = MockNewsFeedViewModel()
+        NewsFeedView(viewModel: viewModel)
     }
 }
+
 

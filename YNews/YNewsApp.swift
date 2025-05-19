@@ -11,7 +11,8 @@ import SwiftUI
 struct YNewsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let newsApiService = NewsAPIService()
+            NewsFeedView(viewModel: DefaultNewsFeedViewModel(newsService: newsApiService))
         }
     }
 }
