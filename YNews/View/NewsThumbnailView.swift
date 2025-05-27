@@ -8,49 +8,43 @@
 import SwiftUI
 
 struct NewsThumbnailView: View {
-    
-    private let imageUrlString: String
-    
-    init(imageUrlString: String) {
-        self.imageUrlString = imageUrlString
-    }
+    let imageUrlString: String
+    private let aspectRatio: CGFloat = 4 / 3
+
     var body: some View {
-        
-        GeometryReader { geo in
-            let imageSide = geo.size.width * 0.3
-            
-            let imageUrl = URL(string: imageUrlString)
-            AsyncImage(url: imageUrl) { phase in
-                
+        GeometryReader { geometry in
+            let width = geometry.size.width
+            let height = width / aspectRatio
+
+            AsyncImage(url: URL(string: imageUrlString)) { phase in
                 switch phase {
                 case .empty:
                     ProgressView()
-                        .frame(width: imageSide, height: imageSide)
                 case .success(let image):
                     image
                         .resizable()
                         .scaledToFill()
-                        .frame(width: imageSide, height: imageSide)
+                        .frame(width: width, height: height)
                         .clipped()
                         .cornerRadius(8)
-                case .failure(let error):
+                case .failure:
                     Image(systemName: "photo")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: imageSide, height: imageSide)
+                        .frame(width: width, height: height)
                         .foregroundColor(.gray)
                 @unknown default:
                     EmptyView()
                 }
             }
         }
-        .frame(height: UIScreen.main.bounds.width * 0.3 + 8) // 8 — padding compensation
-
+        .aspectRatio(aspectRatio, contentMode: .fit)
     }
 }
 
 
+
 #Preview {
-    let imageStringUrl = ""
+    let imageStringUrl = "https://picsum.photos/400/200"
     NewsThumbnailView(imageUrlString: imageStringUrl)
 }
