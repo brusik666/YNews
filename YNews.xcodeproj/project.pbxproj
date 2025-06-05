@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		EED77BE22DF170EC008C6BFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE9C7C922DC9957E0081E128 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE9C7C992DC9957E0081E128;
+			remoteInfo = YNews;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		EE9C7C9A2DC9957E0081E128 /* YNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EED77BDE2DF170EC008C6BFB /* YNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -16,10 +27,22 @@
 			path = YNews;
 			sourceTree = "<group>";
 		};
+		EED77BDF2DF170EC008C6BFB /* YNewsTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = YNewsTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EE9C7C972DC9957E0081E128 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EED77BDB2DF170EC008C6BFB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				EE9C7C9C2DC9957E0081E128 /* YNews */,
+				EED77BDF2DF170EC008C6BFB /* YNewsTests */,
 				EE9C7C9B2DC9957E0081E128 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				EE9C7C9A2DC9957E0081E128 /* YNews.app */,
+				EED77BDE2DF170EC008C6BFB /* YNewsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +95,29 @@
 			productReference = EE9C7C9A2DC9957E0081E128 /* YNews.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EED77BDD2DF170EC008C6BFB /* YNewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EED77BE62DF170EC008C6BFB /* Build configuration list for PBXNativeTarget "YNewsTests" */;
+			buildPhases = (
+				EED77BDA2DF170EC008C6BFB /* Sources */,
+				EED77BDB2DF170EC008C6BFB /* Frameworks */,
+				EED77BDC2DF170EC008C6BFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EED77BE32DF170EC008C6BFB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EED77BDF2DF170EC008C6BFB /* YNewsTests */,
+			);
+			name = YNewsTests;
+			packageProductDependencies = (
+			);
+			productName = YNewsTests;
+			productReference = EED77BDE2DF170EC008C6BFB /* YNewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +130,10 @@
 				TargetAttributes = {
 					EE9C7C992DC9957E0081E128 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					EED77BDD2DF170EC008C6BFB = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = EE9C7C992DC9957E0081E128;
 					};
 				};
 			};
@@ -100,12 +152,20 @@
 			projectRoot = "";
 			targets = (
 				EE9C7C992DC9957E0081E128 /* YNews */,
+				EED77BDD2DF170EC008C6BFB /* YNewsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EE9C7C982DC9957E0081E128 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EED77BDC2DF170EC008C6BFB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +182,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EED77BDA2DF170EC008C6BFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EED77BE32DF170EC008C6BFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE9C7C992DC9957E0081E128 /* YNews */;
+			targetProxy = EED77BE22DF170EC008C6BFB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EE9C7CA62DC995810081E128 /* Debug */ = {
@@ -302,6 +377,42 @@
 			};
 			name = Release;
 		};
+		EED77BE42DF170EC008C6BFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 83DGL53YN8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = brusik.YNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YNews.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/YNews";
+			};
+			name = Debug;
+		};
+		EED77BE52DF170EC008C6BFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 83DGL53YN8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = brusik.YNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YNews.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/YNews";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -319,6 +430,15 @@
 			buildConfigurations = (
 				EE9C7CA92DC995810081E128 /* Debug */,
 				EE9C7CAA2DC995810081E128 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EED77BE62DF170EC008C6BFB /* Build configuration list for PBXNativeTarget "YNewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EED77BE42DF170EC008C6BFB /* Debug */,
+				EED77BE52DF170EC008C6BFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
