@@ -22,11 +22,11 @@ struct NewsRowView: View {
             }
 
             NewsTextBlockView(article: article)
-                .padding(.top, 4)
+                .padding(.top, AppSpacing.small)
         }
         .padding()
         .background(
-            RoundedRectangle(cornerRadius: 12)
+            RoundedRectangle(cornerRadius: AppCornerRadius.medium)
                 .fill(Color(.systemBackground))
                 .shadow(radius: 3)
         )

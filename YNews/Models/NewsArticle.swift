@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewsArticle: Codable, Identifiable {
+struct NewsArticle: Codable, Identifiable, Hashable {
     var id: UUID { UUID() }
     
     let sourceName: String

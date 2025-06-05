@@ -26,7 +26,7 @@ struct NewsThumbnailView: View {
                         .scaledToFill()
                         .frame(width: width, height: height)
                         .clipped()
-                        .cornerRadius(8)
+                        .cornerRadius(AppCornerRadius.medium)
                 case .failure:
                     Image(systemName: "photo")
                         .resizable()

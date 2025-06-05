@@ -9,6 +9,8 @@ import SwiftUI
 
 struct NewsFeedView<ViewModel: NewsFeedViewModel>: View {
     @StateObject private var viewModel: ViewModel
+    @EnvironmentObject var coordinator: MainCoordinator
+
     
     init(viewModel: ViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -35,13 +37,14 @@ struct NewsFeedView<ViewModel: NewsFeedViewModel>: View {
                 .maxFrame()
         case .loaded(let articles):
             List(articles) { article in
-                NavigationLink(destination: NewsDetailView(article: article)) {
-                    NewsRowView(article: article)
-                }
+                NewsRowView(article: article)
+                    .onTapGesture {
+                        coordinator.navigate(to: .detail(article))
+                    }
             }
             .listStyle(.plain)
         case .failed(let error):
-            VStack(spacing: 12) {
+            VStack(spacing: AppSpacing.medium) {
                 Text("Failed to load news.")
                     .font(.headline)
                 Text(error.localizedDescription)

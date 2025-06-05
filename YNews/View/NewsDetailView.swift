@@ -12,7 +12,7 @@ struct NewsDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: AppSpacing.medium) {
                 if let imageUrl = article.urlToImage,
                    let url = URL(string: imageUrl) {
                     AsyncImage(url: url) { image in
@@ -24,7 +24,7 @@ struct NewsDetailView: View {
                     }
                     .frame(height: 200)
                     .clipped()
-                    .cornerRadius(12)
+                    .cornerRadius(AppCornerRadius.large)
                 }
 
                 Text(article.title)
